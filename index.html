@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokyo Guide - Curated Recommendations</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-subtitle">A Curated Guide to</p>
+    <h1 class="hero-title">東京 <span>Tokyo</span></h1>
+    <p class="hero-desc">Handpicked restaurants, cafes, shops, art museums, and neighborhoods from locals who know the city best.</p>
+    <a href="#main-content" class="hero-cta">Explore the Guide ↓</a>
+  </div>
+</header>
+
+<!-- Main Navigation -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">東京 Guide</div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="restaurants">🍽️ Restaurants</button>
+      <button class="nav-tab" data-tab="coffee-sweets">☕ Coffee & Sweets</button>
+      <button class="nav-tab" data-tab="shopping">🛍️ Shopping</button>
+      <button class="nav-tab" data-tab="art">🎨 Art & Museums</button>
+      <button class="nav-tab" data-tab="areas">🗺️ Areas</button>
+      <button class="nav-tab" data-tab="map">📍 Map</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main id="main-content">
+
+  <!-- ==================== RESTAURANTS ==================== -->
+  <section class="tab-content active" id="tab-restaurants">
+    <div class="section-header">
+      <h2>Restaurants</h2>
+      <p>From Michelin-starred sushi to casual ramen joints, Tokyo's food scene is unmatched.</p>
+    </div>
+
+    <!-- Restaurant Sub-tabs -->
+    <div class="sub-tabs">
+      <button class="sub-tab active" data-filter="all">All</button>
+      <button class="sub-tab" data-filter="sushi">🍣 Sushi</button>
+      <button class="sub-tab" data-filter="italian">🍕 Italian / Pizza</button>
+      <button class="sub-tab" data-filter="bbq">🥩 BBQ</button>
+      <button class="sub-tab" data-filter="noodles">🍜 Noodles</button>
+      <button class="sub-tab" data-filter="french">🥖 French</button>
+      <button class="sub-tab" data-filter="other">🍢 Other</button>
+    </div>
+
+    <div class="cards-grid" id="restaurant-cards">
+
+      <!-- SUSHI -->
+      <div class="card" data-category="sushi" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Sushi</span>
+            <span class="tag tag-area">Roppongi</span>
+            <span class="tag tag-family">Family Friendly</span>
+          </div>
+          <h3>Ikina Sushi</h3>
+          <p>Family-friendly sushi restaurant with table seating. About 15 min walk from Roppongi Hills.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130701/13131353/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="sushi" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Sushi</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Otsuna Sushi</h3>
+          <p>Casual sushi near Roppongi Street. Great for a quick, no-fuss sushi meal.</p>
+          <a href="https://otsuna-sushi.com" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="sushi" data-area="nakameguro">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1617196034183-421b4917c92d?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Sushi</span>
+            <span class="tag tag-area">Nakameguro</span>
+            <span class="tag tag-special">Michelin Chef</span>
+          </div>
+          <h3>Udatsu</h3>
+          <p>Authentic high-end sushi by a Michelin star chef. Private/semi-private rooms available for families with kids. Reservation required.</p>
+          <a href="https://www.udatsu-sushi.jp/en" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Nakameguro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="sushi" data-area="tsukiji">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Sushi</span>
+            <span class="tag tag-area">Tsukiji</span>
+          </div>
+          <h3>Tsukiji Market Sushi</h3>
+          <p>Casual walk-in sushi restaurants at the famous fish market. Revolving sushi options also available. Best visited in the morning.</p>
+          <a href="https://www.tsukiji.or.jp/english/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget-Moderate</span>
+            <span>📍 Tsukiji</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITALIAN / PIZZA -->
+      <div class="card" data-category="italian" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Italian</span>
+            <span class="tag tag-area">Roppongi</span>
+            <span class="tag tag-special">Top 100 Tokyo</span>
+          </div>
+          <h3>Il Figo Ingordo</h3>
+          <p>Authentic Italian restaurant, nominated among the best 100 restaurants in Tokyo. Booking is relatively easier than other top spots.</p>
+          <a href="https://www.figo-ingordo.jp/ilfigo_ingordo/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="italian" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Pizza</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Napule</h3>
+          <p>Neapolitan-style pizza inside the Tokyo Midtown complex. Convenient location with great atmosphere.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130701/13037338/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Tokyo Midtown</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="italian" data-area="azabu-juban">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Pizza</span>
+            <span class="tag tag-area">Azabu-juban</span>
+            <span class="tag tag-family">Family Friendly</span>
+          </div>
+          <h3>SAVOY</h3>
+          <p>Neapolitan-style pizza with private rooms recommended for families with kids. Cozy atmosphere.</p>
+          <a href="https://savoy-azabujyuban.com/en" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Azabu-juban</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="italian" data-area="shibuya">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Pizza</span>
+            <span class="tag tag-area">Shibuya</span>
+          </div>
+          <h3>Pizza Slice</h3>
+          <p>New York-style pizza slices. About 12 min walk from Shibuya Station. Casual grab-and-go vibe.</p>
+          <a href="https://pizzaslice.co/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Shibuya</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FRENCH -->
+      <div class="card" data-category="french" data-area="azabu-juban">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">French Bistro</span>
+            <span class="tag tag-area">Azabu-juban</span>
+            <span class="tag tag-family">Family Friendly</span>
+          </div>
+          <h3>Le Pot Aux Roses</h3>
+          <p>Kids-friendly French bistro for both lunch and dinner. Just 2-3 min walk from Roppongi Hills Residence.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130702/13134947/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Azabu-juban</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OTHER -->
+      <div class="card" data-category="other" data-area="azabu-juban">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Spanish</span>
+            <span class="tag tag-area">Azabu-juban</span>
+            <span class="tag tag-family">Family Friendly</span>
+          </div>
+          <h3>Atrevio</h3>
+          <p>Kids-friendly semi-casual Spanish restaurant. Walk-in available (limited seating). Opens 11am daily. 2-3 min from Roppongi Hills.</p>
+          <a href="https://www.atrevio.jp/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Azabu-juban</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BBQ -->
+      <div class="card" data-category="bbq" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Brazilian BBQ</span>
+            <span class="tag tag-area">Roppongi</span>
+            <span class="tag tag-family">Family Friendly</span>
+          </div>
+          <h3>Barbacoa</h3>
+          <p>One of Tokyo's most famous Brazilian BBQ restaurants. Located in Roppongi Hills Mori Tower with large seating and a kids-friendly atmosphere.</p>
+          <a href="https://barbacoa.jp/en/pages/roppongi-hills" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate-High</span>
+            <span>📍 Roppongi Hills</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="bbq" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Teppanyaki</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Keyakizaka</h3>
+          <p>Teppanyaki at the Grand Hyatt Roppongi. Relatively easy to walk-in or book. Watch chefs prepare your meal on a hot iron griddle.</p>
+          <a href="https://www.tokyo.grand.hyatt.co.jp/en/restaurants/keyakizaka-restaurant/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Grand Hyatt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="bbq" data-area="ebisu">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Yakiniku</span>
+            <span class="tag tag-area">Ebisu</span>
+            <span class="tag tag-special">Book Weeks Ahead</span>
+          </div>
+          <h3>Ebisu Yoroniku</h3>
+          <p>Authentic Japanese Yakiniku where servers grill premium cuts for you. Requires private room booking for families — reserve weeks in advance.</p>
+          <a href="https://tabelog.com/en/tokyo/A1303/A130302/13211927/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Ebisu</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOODLES -->
+      <div class="card" data-category="noodles" data-area="azabu-juban">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Soba</span>
+            <span class="tag tag-area">Azabu-juban</span>
+            <span class="tag tag-special">Historic</span>
+          </div>
+          <h3>Sarashina Horii</h3>
+          <p>One of Tokyo's most famous and oldest soba restaurants with hundreds of years of history. Just 5 min walk from Roppongi Hills.</p>
+          <a href="https://www.sarashina-horii.com/en/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Azabu-juban</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="noodles" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Soba</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Yamato</h3>
+          <p>High-end soba and small plates on Keyaki-zaka Street. Advance booking recommended for dinner.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130701/13219872/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="noodles" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1552611052-33e04de1b100?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Udon</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>TsuruTonTan</h3>
+          <p>Modern udon with creative variations. Near Roppongi Station, about 10-15 min walk from Roppongi Hills.</p>
+          <a href="https://www.tsurutontan.co.jp/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="noodles" data-area="ginza">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Udon</span>
+            <span class="tag tag-area">Ginza</span>
+          </div>
+          <h3>Sato Yosuke</h3>
+          <p>Inaniwa-style udon — silky thin noodles from Akita Prefecture. Just 5 min from Ginza Station on the Ginza line.</p>
+          <a href="https://www.sato-yoske.co.jp/en/shop/ginza/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Ginza</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAMEN -->
+      <div class="card" data-category="noodles" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Ramen</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Iruka Roppongi</h3>
+          <p>Unique shoyu ramen with kombu-dashi and porcini mushroom. A refined take on a classic.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130701/13264260/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="noodles" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Ramen</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Rakkan Roppongi</h3>
+          <p>Shoyu and shoyu tonkotsu ramen. Rich, flavorful broth in the heart of Roppongi.</p>
+          <a href="http://rakkaninc.com" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="noodles" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Ramen</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Kumamen</h3>
+          <p>Kumamoto-style tonkotsu ramen with signature fried garlic. Bold, garlicky, and delicious.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130701/13274772/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- YAKITORI -->
+      <div class="card" data-category="other" data-area="azabu-juban">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Yakitori</span>
+            <span class="tag tag-area">Azabu-juban</span>
+            <span class="tag tag-special">Historic</span>
+          </div>
+          <h3>Abe-chan</h3>
+          <p>One of the most casual and oldest yakitori shops in the area. Street food vibes, affordable, and full of local character. 8-10 min walk.</p>
+          <a href="https://tabelog.com/en/tokyo/A1307/A130702/13007199/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Azabu-juban</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SINGAPOREAN -->
+      <div class="card" data-category="other" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1519624014191-508652cbd7b5?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Singaporean</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Hainan Jiifan</h3>
+          <p>Singaporean chicken rice just 30 seconds from Roppongi Hills Residence. Casual walk-in, quick and satisfying.</p>
+          <a href="https://route9g.com/1358/en/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== COFFEE & SWEETS ==================== -->
+  <section class="tab-content" id="tab-coffee-sweets">
+    <div class="section-header">
+      <h2>Coffee & Sweets</h2>
+      <p>Tokyo's specialty coffee and patisserie scene rivals the best in the world.</p>
+    </div>
+
+    <div class="sub-tabs">
+      <button class="sub-tab active" data-filter="all">All</button>
+      <button class="sub-tab" data-filter="coffee">☕ Coffee</button>
+      <button class="sub-tab" data-filter="sweets">🍰 Sweets</button>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="card" data-category="coffee" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Coffee</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Streamer Coffee</h3>
+          <p>Just 1 min from Roppongi Hills Residence. Good coffee and breakfast pastries to start your day.</p>
+          <a href="https://streamer.coffee/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="coffee" data-area="omotesando">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Coffee</span>
+            <span class="tag tag-area">Omotesando</span>
+            <span class="tag tag-special">Best in Tokyo</span>
+          </div>
+          <h3>KOFFEE MAMEYA</h3>
+          <p>Said to offer one of the best coffees in Tokyo. A must-visit for any specialty coffee lover.</p>
+          <a href="https://koffee-mameya.com/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Omotesando</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="coffee" data-area="various">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Coffee</span>
+            <span class="tag tag-area">Multiple</span>
+          </div>
+          <h3>Fuglen</h3>
+          <p>Renowned cafe brand from Oslo with excellent pour-over. Locations near Yoyogi Park (original), Meiji-jingu shrine, and Asakusa Sensoji temple.</p>
+          <a href="https://fuglencoffee.jp/en/pages/fuglen-tokyo" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Tomigaya / Sangubashi / Asakusa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="coffee" data-area="ginza">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Coffee</span>
+            <span class="tag tag-area">Ginza / Jimbocho</span>
+          </div>
+          <h3>Glitch Coffee</h3>
+          <p>High quality roaster and cafe with locations in Ginza and Jimbocho. Excellent single-origin coffees.</p>
+          <a href="https://glitchcoffee.com/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Ginza / Jimbocho</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="sweets" data-area="ginza">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558326567-98ae2405596b?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Patisserie</span>
+            <span class="tag tag-area">Ginza / Roppongi</span>
+            <span class="tag tag-special">Famous</span>
+          </div>
+          <h3>Sadaharu Aoki</h3>
+          <p>One of Tokyo's most famous patisseries, renowned for exquisite macarons and cakes. Eat-in available at Ginza and Tokyo Midtown Roppongi locations.</p>
+          <a href="http://www.sadaharuaoki.com/boutique/tokyo-en.html" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Ginza / Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="sweets" data-area="kyobashi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Chocolaterie</span>
+            <span class="tag tag-area">Kyobashi</span>
+          </div>
+          <h3>Toshi Yoroizuka</h3>
+          <p>Famous chocolaterie with eat-in space. Exquisite chocolate creations from a legendary pastry chef.</p>
+          <a href="http://www.grand-patissier.info/ToshiYoroizuka/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Kyobashi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="sweets" data-area="azabu-juban">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Japanese Sweets</span>
+            <span class="tag tag-area">Azabu-juban</span>
+            <span class="tag tag-special">Best Mont Blanc</span>
+          </div>
+          <h3>Hisaya</h3>
+          <p>Chestnut sweets specialist famous for the best Mont Blanc in Tokyo. Eat-in on the second floor. About 10 min walk from Roppongi Hills.</p>
+          <a href="https://kyo-yakiguri.com/hisaya-kyoto/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Azabu-juban</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SHOPPING ==================== -->
+  <section class="tab-content" id="tab-shopping">
+    <div class="section-header">
+      <h2>Shopping</h2>
+      <p>From luxury department stores to hidden kitchen knife shops, Tokyo is a shopper's paradise.</p>
+    </div>
+
+    <div class="sub-tabs">
+      <button class="sub-tab active" data-filter="all">All</button>
+      <button class="sub-tab" data-filter="department">🏬 Department Stores</button>
+      <button class="sub-tab" data-filter="specialty">🔪 Specialty Shops</button>
+      <button class="sub-tab" data-filter="lifestyle">✨ Lifestyle</button>
+      <button class="sub-tab" data-filter="market">🍱 Food Markets</button>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="card" data-category="department" data-area="shinjuku">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Department Store</span>
+            <span class="tag tag-area">Shinjuku</span>
+            <span class="tag tag-special">Best in Tokyo</span>
+          </div>
+          <h3>Isetan Shinjuku</h3>
+          <p>The "Harrods of Tokyo" — the best department store curation and service. Connected to Shinjuku Sancho-me metro station.</p>
+          <a href="https://cp.mistore.jp/global/en/shinjuku.html" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Shinjuku</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="department" data-area="ginza">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Department Store</span>
+            <span class="tag tag-area">Ginza</span>
+          </div>
+          <h3>Mitsukoshi Ginza</h3>
+          <p>Iconic department store with an exceptional deli and food selection on B2/B3 floors. A food lover's basement paradise.</p>
+          <a href="https://cp.mistore.jp/global/en/ginza.html" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Ginza</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="lifestyle" data-area="ginza">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Lifestyle</span>
+            <span class="tag tag-area">Ginza</span>
+          </div>
+          <h3>MUJI Ginza Flagship</h3>
+          <p>The ultimate MUJI experience. B1F has a casual dining restaurant, 1F-5F is the shop, and 6F-12F is the MUJI Hotel. Founded in 1980 with a philosophy of functional quality design.</p>
+          <a href="https://www.muji.com/flagship/ginza/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Ginza</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="lifestyle" data-area="ginza">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Books & Food</span>
+            <span class="tag tag-area">Ginza</span>
+          </div>
+          <h3>Ginza Six</h3>
+          <p>6F Tsutaya bookstore offers curated art, architecture, and Japanese cultural books. B2F food hall features famous bento including Noriben Yamanobori.</p>
+          <a href="https://ginza6.tokyo/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Various</span>
+            <span>📍 Ginza</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="market" data-area="azabudai">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Food Market</span>
+            <span class="tag tag-area">Azabudai</span>
+            <span class="tag tag-special">Must Visit</span>
+          </div>
+          <h3>Azabudai Hills Market</h3>
+          <p>4,000 sq meter basement food market with 34 specialty stores. Fresh produce, meat, fish, delicatessen, sweets, bread and more. Some vendors are Michelin-starred.</p>
+          <a href="https://www.azabudai-hills.com/azabudaihillsmarket/index.html" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Various</span>
+            <span>📍 Azabudai</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="specialty" data-area="kappabashi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1593618998160-e34014e67546?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Kitchen Knives</span>
+            <span class="tag tag-area">Kappabashi</span>
+            <span class="tag tag-special">Must Visit</span>
+          </div>
+          <h3>Kamaasa Kitchen Knife</h3>
+          <p>THE place for Japanese cooking knives. Amazing selection with English descriptions and helpful English-speaking staff. A chef's dream shop.</p>
+          <a href="https://kama-asa.co.jp/en-us" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-footer-tip">
+            <strong>Tip:</strong> Avoid Sundays (70% closed), Saturdays (30% closed). Weekdays are best for Kappabashi.
+          </div>
+          <div class="card-meta">
+            <span>💰 Various</span>
+            <span>📍 Kappabashi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="specialty" data-area="kappabashi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Novelty</span>
+            <span class="tag tag-area">Kappabashi</span>
+            <span class="tag tag-family">Family Friendly</span>
+          </div>
+          <h3>Ganso Shokuhin Sample-ya</h3>
+          <p>Creates incredibly realistic food imitation samples from pictures. A uniquely Japanese art form — great for souvenirs and fun with kids.</p>
+          <a href="https://www.ganso-sample.com/en/shop/kappabashi/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Budget</span>
+            <span>📍 Kappabashi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="specialty" data-area="nakameguro">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Ceramics</span>
+            <span class="tag tag-area">Nakameguro</span>
+          </div>
+          <h3>Kinto</h3>
+          <p>Beautiful Japanese ceramic cups, plates, and kitchen goods. Minimalist design with a flagship store also in LA.</p>
+          <a href="https://kinto-usa.com/pages/locations" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Nakameguro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="lifestyle" data-area="daikanyama">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Books & Lifestyle</span>
+            <span class="tag tag-area">Daikanyama</span>
+          </div>
+          <h3>Tsutaya Daikanyama</h3>
+          <p>Iconic bookstore, shop, and restaurant complex in one of Tokyo's most stylish neighborhoods.</p>
+          <a href="https://store.tsite.jp/daikanyama/english/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Daikanyama</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="lifestyle" data-area="daikanyama">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Fashion</span>
+            <span class="tag tag-area">Daikanyama</span>
+          </div>
+          <h3>MAISON KITSUNE Daikanyama</h3>
+          <p>Japanese-influenced French clothing brand. Stylish, cross-cultural fashion in a beautifully designed store.</p>
+          <a href="https://maisonkitsune.com/mk/find-a-store/maison-kitsune-daikanyama/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 High-end</span>
+            <span>📍 Daikanyama</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="market" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Dashi / Food</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Kayanoya Tokyo Midtown</h3>
+          <p>The best Dashi (Japanese fish stock) shop in Tokyo. A wonderful food gift and a taste of authentic Japanese cooking. Multiple Tokyo locations.</p>
+          <a href="https://www.kayanoya.com/en/shop/midtown-tokyo/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Tokyo Midtown</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="specialty" data-area="kuramae">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Craft Gin</span>
+            <span class="tag tag-area">Kuramae</span>
+          </div>
+          <h3>TOKYO RIVERSIDE DISTILLERY</h3>
+          <p>Craft gin distillery producing Japanese-flavored gin on-site. Unique tasting experience in a creative neighborhood.</p>
+          <a href="https://ethicalspirits.jp/en/distillery/trd/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Moderate</span>
+            <span>📍 Kuramae</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-category="lifestyle" data-area="shibuya">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Shopping Complex</span>
+            <span class="tag tag-area">Shibuya</span>
+          </div>
+          <h3>Miyashita Park</h3>
+          <p>Newly opened shop and restaurant complex featuring casual to high-end brands. A modern urban park experience on the rooftop.</p>
+          <a href="https://www.miyashita-park.tokyo/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>💰 Various</span>
+            <span>📍 Shibuya</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ART ==================== -->
+  <section class="tab-content" id="tab-art">
+    <div class="section-header">
+      <h2>Art & Museums</h2>
+      <p>From contemporary masterpieces to immersive digital worlds, Tokyo's art scene is extraordinary.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="card card-wide" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1554907984-15263bfd63bd?w=800&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Contemporary Art</span>
+            <span class="tag tag-area">Roppongi</span>
+            <span class="tag tag-special">Must Visit</span>
+          </div>
+          <h3>Mori Art Museum & Tokyo City View</h3>
+          <p>Great curators with the budget to match. Past exhibitions include Yayoi Kusama, Leandro Erlich, and Takashi Murakami. Specializes in modern art requiring massive spaces. The observation deck offers panoramic Tokyo views.</p>
+          <a href="https://mori.art.museum/en/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Roppongi Hills</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Contemporary Art</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>The National Art Center</h3>
+          <p>The MoMA of Tokyo. Interesting rotating exhibitions in a striking wave-shaped glass building designed by Kisho Kurokawa.</p>
+          <a href="https://www.nact.jp/english/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Roppongi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-area="roppongi">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Traditional Art</span>
+            <span class="tag tag-area">Roppongi</span>
+          </div>
+          <h3>Suntory Museum of Art</h3>
+          <p>Relatively small museum in Tokyo Midtown with a surprisingly amazing collection of traditional Japanese art and crafts.</p>
+          <a href="https://www.suntory.com/sma/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Tokyo Midtown</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-wide" data-area="azabudai">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Interactive Art</span>
+            <span class="tag tag-area">Azabudai Hills</span>
+            <span class="tag tag-family">Great for Kids</span>
+          </div>
+          <h3>teamLab Borderless</h3>
+          <p>Excellent interactive digital art space where artworks flow from room to room without boundaries. An immersive, magical experience especially great for families and kids.</p>
+          <a href="https://www.teamlab.art/e/tokyo/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Azabudai Hills</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-area="shin-toyosu">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Interactive Art</span>
+            <span class="tag tag-area">Shin-Toyosu</span>
+          </div>
+          <h3>teamLab Planets Tokyo</h3>
+          <p>Experiential art museum where you walk through water and immerse yourself in digital art. Remove your shoes and wade through the installations.</p>
+          <a href="https://www.teamlab.art/e/planets/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Shin-Toyosu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-area="omotesando">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Traditional Art</span>
+            <span class="tag tag-area">Omotesando</span>
+            <span class="tag tag-special">Hidden Gem</span>
+          </div>
+          <h3>Nezu Museum</h3>
+          <p>A hidden gem of traditional Japanese art with a beautiful tea house in the garden. Hosts occasional tea ceremony events. Mid-size but deeply curated.</p>
+          <a href="https://www.nezu-muse.or.jp/en/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Omotesando</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-area="shinjuku">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1577083553431-6e5fd01988ec?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Contemporary Art</span>
+            <span class="tag tag-area">Shinjuku</span>
+            <span class="tag tag-special">Book Early!</span>
+          </div>
+          <h3>Kusama Yayoi Museum</h3>
+          <p>Super popular — no same-day tickets and they sell out immediately. Must purchase in advance. Dedicated to the iconic polka-dot artist.</p>
+          <a href="https://yayoikusamamuseum.jp/en/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Shinjuku</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-area="mitaka">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80')"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-cuisine">Animation</span>
+            <span class="tag tag-area">Mitaka</span>
+            <span class="tag tag-family">Great for Kids</span>
+          </div>
+          <h3>Ghibli Museum</h3>
+          <p>A magical museum for Studio Ghibli fans. Advance ticket booking required — purchase involves printing at a convenience store kiosk.</p>
+          <a href="https://www.ghibli-museum.jp/en/" target="_blank" rel="noopener" class="card-link">Visit Website &rarr;</a>
+          <div class="card-meta">
+            <span>📍 Mitaka</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== AREAS ==================== -->
+  <section class="tab-content" id="tab-areas">
+    <div class="section-header">
+      <h2>Explore by Area</h2>
+      <p>Each Tokyo neighborhood has its own personality. Here's what to do in each.</p>
+    </div>
+
+    <div class="area-grid">
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Harajuku / Shibuya / Omotesando</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🛍️ Shopping</h4>
+            <ul>
+              <li><strong>Harajuku:</strong> Young/vintage fashion in small alley shops, Cat Street</li>
+              <li><strong>Omotesando:</strong> High-end brand boulevard, Omotesando Hills</li>
+              <li><strong>Shibuya:</strong> Miyashita Park, Shibuya Hikarie</li>
+            </ul>
+          </div>
+          <div class="area-section">
+            <h4>🏛️ Attractions</h4>
+            <ul>
+              <li><strong>Meiji Shrine:</strong> Serene traditional Shinto shrine in a forest</li>
+              <li><strong>Shibuya Scramble Crossing:</strong> One of the world's busiest intersections</li>
+              <li><strong>Shibuya Sky:</strong> Open-air observation deck, famous on social media</li>
+            </ul>
+          </div>
+          <div class="area-section">
+            <h4>🍜 Food & Nightlife</h4>
+            <ul>
+              <li>Harajuku Gyoza (Dumplings)</li>
+              <li>Daihachi Takohachimaru (Takoyaki)</li>
+              <li>TOKYO Whisky Library (Bar, Omotesando)</li>
+              <li>Trunk Hotel (Lounge Cafe & Bar)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Roppongi & Nishiazabu</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🎨 Art</h4>
+            <ul>
+              <li>Mori Art Museum & Tokyo City View</li>
+              <li>The National Art Center</li>
+              <li>Suntory Museum of Art</li>
+            </ul>
+          </div>
+          <div class="area-section">
+            <h4>🍽️ Food</h4>
+            <ul>
+              <li><strong>Ushigoro:</strong> Premium Yakiniku BBQ (~$80)</li>
+              <li><strong>Sushi Tsu:</strong> $50 lunch, $200 dinner</li>
+              <li>Multiple restaurants listed in the Restaurants tab</li>
+            </ul>
+          </div>
+          <div class="area-section">
+            <h4>🍸 Nightlife</h4>
+            <ul>
+              <li><strong>Gen Yamamoto:</strong> Cocktail set menu (4 or 6 drinks) — book ahead</li>
+              <li><strong>One Oak:</strong> Popular nightclub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1480796927426-f609979314bd?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Ginza</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🛍️ Shopping</h4>
+            <ul>
+              <li><strong>Ginza Six:</strong> Tsutaya bookstore (6F), food hall (B2F)</li>
+              <li><strong>Mitsukoshi:</strong> Underground food paradise</li>
+              <li><strong>MUJI Flagship:</strong> Shop + restaurant + hotel</li>
+              <li>Flagship stores: RIMOWA, ISSEY MIYAKE, BAO BAO</li>
+            </ul>
+          </div>
+          <div class="area-section">
+            <h4>🍽️ Food</h4>
+            <ul>
+              <li>World-class Michelin-starred sushi restaurants</li>
+              <li><strong>Sato Yosuke:</strong> Inaniwa-style udon</li>
+              <li><strong>Glitch Coffee & Sadaharu Aoki</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1583766395091-2eb9994ed094?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Asakusa & Kappabashi</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🏛️ Traditional Tokyo</h4>
+            <ul>
+              <li><strong>Senso-ji Temple:</strong> Popular Buddhist temple built in the 7th century</li>
+              <li><strong>Kaminarimon:</strong> Iconic Thunder Gate</li>
+              <li><strong>Nakamise Shopping Street:</strong> Traditional souvenirs & street food</li>
+              <li><strong>Asakusa Hanayashiki:</strong> One of Japan's oldest amusement parks</li>
+            </ul>
+          </div>
+          <div class="area-section">
+            <h4>🔪 Kappabashi (Kitchen Street)</h4>
+            <ul>
+              <li><strong>Kamaasa:</strong> THE knife shop (English-speaking staff)</li>
+              <li><strong>Numata Nori:</strong> Seaweed specialist</li>
+              <li><strong>Food Sample shops:</strong> Make your own plastic food replicas</li>
+              <li class="tip">⚠️ Best on weekdays. Avoid Sunday (70% closed).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Tokyo Station & Marunouchi</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🚶 Things to Do</h4>
+            <ul>
+              <li>Walk around the Imperial Palace Garden</li>
+              <li>Photography at Tokyo Station and Tokyo Station Hotel</li>
+              <li>Shopping at Marunouchi Building and Shin Marunouchi Building</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Ebisu / Nakameguro / Daikanyama</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🛍️ & 🍽️ Highlights</h4>
+            <ul>
+              <li><strong>Kinto:</strong> Beautiful Japanese ceramics and kitchen goods</li>
+              <li><strong>Tsutaya Daikanyama:</strong> Iconic bookstore complex</li>
+              <li><strong>MAISON KITSUNE:</strong> Japanese-French fashion</li>
+              <li><strong>Ebisu Yoroniku:</strong> Premium yakiniku (book weeks ahead)</li>
+              <li><strong>Udatsu:</strong> Michelin-star sushi chef</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Tsukiji</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🐟 The Fish Market</h4>
+            <ul>
+              <li>Visit Tsukiji Fish Market early in the morning</li>
+              <li><strong>Sushi Dai:</strong> Popular and affordable sushi</li>
+              <li>Various walk-in sushi restaurants</li>
+              <li>Fresh seafood street food vendors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-img" style="background-image: url('https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=800&q=80')">
+          <div class="area-overlay">
+            <h3>Kuramae</h3>
+          </div>
+        </div>
+        <div class="area-body">
+          <div class="area-section">
+            <h4>🎨 Creative Neighborhood</h4>
+            <ul>
+              <li><strong>Doguya Nobori:</strong> Beautiful kitchen plates and drinkware</li>
+              <li><strong>Coffee & Bar gg GENIE:</strong> Coffee in bear-shaped bottles</li>
+              <li><strong>TOKYO RIVERSIDE DISTILLERY:</strong> Craft Japanese gin</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MAP ==================== -->
+  <section class="tab-content" id="tab-map">
+    <div class="section-header">
+      <h2>Interactive Map</h2>
+      <p>All recommendations plotted on the map. Click markers for details.</p>
+    </div>
+    <div class="map-filters">
+      <button class="map-filter active" data-mapfilter="all">All</button>
+      <button class="map-filter" data-mapfilter="restaurant">🍽️ Restaurants</button>
+      <button class="map-filter" data-mapfilter="coffee">☕ Coffee & Sweets</button>
+      <button class="map-filter" data-mapfilter="shopping">🛍️ Shopping</button>
+      <button class="map-filter" data-mapfilter="art">🎨 Art</button>
+      <button class="map-filter" data-mapfilter="attraction">📸 Attractions</button>
+    </div>
+    <div id="map"></div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-logo">東京 Guide</p>
+    <p>Curated recommendations from locals who love Tokyo.</p>
+    <p class="footer-note">Prices, hours, and availability may change. Always check before visiting.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
