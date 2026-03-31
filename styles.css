@@ -368,6 +368,28 @@ body {
   color: var(--text-light);
 }
 
+.loc-link {
+  cursor: pointer;
+}
+
+.loc-link .loc-text {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.loc-link:hover .loc-text {
+  color: var(--accent);
+}
+
+.card-links {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 12px;
+  align-items: center;
+}
+
 .card-link {
   display: inline-block;
   margin-top: 12px;
@@ -378,7 +400,26 @@ body {
   transition: color 0.2s ease;
 }
 
+.card-links .card-link,
+.card-links .card-link-tabelog {
+  margin-top: 0;
+}
+
 .card-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.card-link-tabelog {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.card-link-tabelog:hover {
   color: var(--primary);
   text-decoration: underline;
 }
